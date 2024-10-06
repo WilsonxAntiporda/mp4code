@@ -1,0 +1,1736 @@
+section .data
+	clearScreen db 27, '[2J', 0          
+
+	moveCursor1 db 27, '[1;1H'          
+    	moveCursor1_len equ $ - moveCursor1
+
+	enrollment_prompt db "ENROLLMENT STATUS: "
+	enroll_len equ $ - enrollment_prompt 
+	
+	moveCursor2 db 27, '[2;1H'          
+    	moveCursor2_len equ $ - moveCursor2
+
+	
+	term_prompt db "Term: "
+	term_len equ $ - term_prompt
+	
+	moveCursor3 db 27, '[2;10H'          
+    	moveCursor3_len equ $ - moveCursor3
+	
+	sy_prompt db "School Year: "
+	sy_len equ $ - sy_prompt
+	
+	moveCursor4 db 27, '[5;1H'          
+    	moveCursor4_len equ $ - moveCursor4
+	
+	sid_prompt db "Student #: 202311752"
+	sid_len equ $ - sid_prompt
+	
+	moveCursor5 db 27, '[6;1H'          
+    	moveCursor5_len equ $ - moveCursor5
+	
+	name_prompt db "Name: "
+	name_len equ $ - name_prompt
+	
+	moveCursor6 db 27, '[5;30H'          
+    	moveCursor6_len equ $ - moveCursor6
+	
+	college_prompt db "College: "
+	college_len equ $ - college_prompt
+	
+	moveCursor7 db 27, '[6;30H'          
+    	moveCursor7_len equ $ - moveCursor7
+	
+	yrlevel_prompt db "Year Level: 1 1st term, SY 20242025 "
+	yrlvel_len equ $ - yrlevel_prompt
+	
+	moveCursor8 db 27, '[5;70H'          
+    	moveCursor8_len equ $ - moveCursor8
+	
+	prog_prompt db "Program: "
+	prog_len equ $ - prog_prompt
+	
+	moveCursor9 db 27, '[8;1H'          
+    	moveCursor9_len equ $ - moveCursor9
+	
+	course_prompt db "Courses"
+ 	course_len equ $ - course_prompt
+ 	
+ 	; course codes
+ 	moveCursor10 db 27, '[9;1H'          
+    	moveCursor10_len equ $ - moveCursor10
+	
+	c1_prompt db "CCS0021"
+ 	c1_len equ $ - c1_prompt
+ 	
+ 	moveCursor11 db 27, '[10;1H'          
+    	moveCursor11_len equ $ - moveCursor11
+    	
+ 	c2_prompt db "CCS0021L"
+ 	c2_len equ $ - c2_prompt
+ 	
+ 	moveCursor12 db 27, '[11;1H'          
+    	moveCursor12_len equ $ - moveCursor12
+ 	
+ 	c3_prompt db "CS0001"
+ 	c3_len equ $ - c3_prompt
+ 	
+ 	moveCursor13 db 27, '[12;1H'          
+    	moveCursor13_len equ $ - moveCursor13
+ 	
+ 	c4_prompt db "CS0003"
+ 	c4_len equ $ - c4_prompt
+ 	
+ 	moveCursor14 db 27, '[13;1H'          
+    	moveCursor14_len equ $ - moveCursor14
+ 	
+ 	c5_prompt db "CS0003L"
+ 	c5_len equ $ - c5_prompt
+ 	
+ 	moveCursor15 db 27, '[14;1H'          
+    	moveCursor15_len equ $ - moveCursor15
+ 	
+ 	c6_prompt db "CS0070"
+ 	c6_len equ $ - c6_prompt
+ 	
+ 	moveCursor16 db 27, '[15;1H'          
+    	moveCursor16_len equ $ - moveCursor16
+ 	
+ 	c7_prompt db "CS0070L"
+ 	c7_len equ $ - c7_prompt
+ 	
+ 	moveCursor17 db 27, '[16;1H'          
+    	moveCursor17_len equ $ - moveCursor17
+ 	
+ 	c8_prompt db "GED0021"
+ 	c8_len equ $ - c8_prompt
+ 	
+ 	moveCursor18 db 27, '[17;1H'          
+    	moveCursor18_len equ $ - moveCursor18
+ 	
+ 	c9_prompt db "GED0081"
+ 	c9_len equ $ - c9_prompt
+ 	
+ 	moveCursor19 db 27, '[18;1H'          
+    	moveCursor19_len equ $ - moveCursor19
+ 	
+ 	c10_prompt db "GED0081L"
+ 	c10_len equ $ - c10_prompt
+ 	
+ 	moveCursor20 db 27, '[19;1H'          
+    	moveCursor20_len equ $ - moveCursor20
+ 	
+ 	tunits_prompt db "Total Units: 18"
+ 	tunits_len equ $ - tunits_prompt
+ 	
+ 	moveCursor21 db 27, '[8;25H'          
+    	moveCursor21_len equ $ - moveCursor21
+    	
+    	title_prompt db "Title"
+ 	title_len equ $ - title_prompt
+ 	
+ 	moveCursor22 db 27, '[9;15H'          
+    	moveCursor22_len equ $ - moveCursor22
+    	
+    	t1_prompt db "INFORMATION MANAGEMENT (LEC)"
+ 	t1_len equ $ - t1_prompt
+ 	
+ 	moveCursor23 db 27, '[10;15H'          
+    	moveCursor23_len equ $ - moveCursor23
+    	
+    	t2_prompt db "INFORMATION MANAGEMENT (LAB)"
+ 	t2_len equ $ - t2_prompt
+ 	
+ 	moveCursor24 db 27, '[11;15H'          
+    	moveCursor24_len equ $ - moveCursor24
+ 	
+ 	t3_prompt db "DISCRETE STRUCTURES"
+ 	t3_len equ $ - t3_prompt
+ 	
+ 	moveCursor25 db 27, '[12;15H'          
+    	moveCursor25_len equ $ - moveCursor25
+
+    	
+    	t4_prompt db "COMPUTER SYSTEMS AND ARCHITECTURE"
+ 	t4_len equ $ - t4_prompt
+ 	
+ 	moveCursor26 db 27, '[13;15H'          
+    	moveCursor26_len equ $ - moveCursor26
+
+    	
+    	t5_prompt db "COMPUTER SYSTEMS AND ARCHITECTURE"
+ 	t5_len equ $ - t5_prompt
+ 	
+ 	moveCursor27 db 27, '[14;15H'          
+    	moveCursor27_len equ $ - moveCursor25
+
+    	
+    	t6_prompt db "COMPUTER SYSTEMS AND ARCHITECTURE"
+ 	t6_len equ $ - t6_prompt
+ 	
+ 	moveCursor28 db 27, '[15;15H'          
+    	moveCursor28_len equ $ - moveCursor28
+
+    	
+    	t7_prompt db "COMPUTER SYSTEMS AND ARCHITECTURE"
+ 	t7_len equ $ - t7_prompt
+ 	
+ 	moveCursor29 db 27, '[16;15H'          
+    	moveCursor29_len equ $ - moveCursor29
+
+    	
+    	t8_prompt db "COMPUTER SYSTEMS AND ARCHITECTURE"
+ 	t8_len equ $ - t8_prompt
+ 	
+ 	moveCursor30 db 27, '[17;15H'          
+    	moveCursor30_len equ $ - moveCursor30
+
+    	
+    	t9_prompt db "COMPUTER SYSTEMS AND ARCHITECTURE"
+ 	t9_len equ $ - t9_prompt
+ 	
+ 	moveCursor31 db 27, '[18;15H'          
+    	moveCursor31_len equ $ - moveCursor31
+
+
+    	t10_prompt db "COMPUTER SYSTEMS AND ARCHITECTURE"
+ 	t10_len equ $ - t10_prompt
+ 	
+ 	moveCursor32 db 27, '[8;52H'          
+    	moveCursor32_len equ $ - moveCursor32
+
+
+    	sec_prompt db "Section"
+ 	sec_len equ $ - sec_prompt
+ 	
+ 	moveCursor33 db 27, '[9;53H'          
+    	moveCursor33_len equ $ - moveCursor33
+
+
+    	sec1_prompt db "TN210"
+ 	sec1_len equ $ - sec1_prompt
+ 	
+ 	moveCursor34 db 27, '[10;53H'          
+    	moveCursor34_len equ $ - moveCursor34
+
+
+    	sec2_prompt db "TN210"
+ 	sec2_len equ $ - sec2_prompt
+ 	
+	moveCursor35 db 27, '[11;53H'          
+    	moveCursor35_len equ $ - moveCursor35
+
+
+    	sec3_prompt db "TN210"
+ 	sec3_len equ $ - sec3_prompt
+ 	
+ 	moveCursor36 db 27, '[12;53H'          
+    	moveCursor36_len equ $ - moveCursor36
+
+
+    	sec4_prompt db "TN210"
+ 	sec4_len equ $ - sec4_prompt
+ 	
+ 	moveCursor37 db 27, '[13;53H'          
+    	moveCursor37_len equ $ - moveCursor37
+
+
+    	sec5_prompt db "TN210"
+ 	sec5_len equ $ - sec5_prompt
+ 	
+ 	moveCursor38 db 27, '[14;53H'          
+    	moveCursor38_len equ $ - moveCursor38
+
+
+    	sec6_prompt db "TN210"
+ 	sec6_len equ $ - sec6_prompt
+ 	
+ 	moveCursor39 db 27, '[15;53H'          
+    	moveCursor39_len equ $ - moveCursor39
+
+
+    	sec7_prompt db "TN210"
+ 	sec7_len equ $ - sec7_prompt
+ 	
+ 	moveCursor40 db 27, '[16;53H'          
+    	moveCursor40_len equ $ - moveCursor40
+
+
+    	sec8_prompt db "TN210"
+ 	sec8_len equ $ - sec8_prompt
+ 	
+ 	moveCursor41 db 27, '[17;53H'          
+    	moveCursor41_len equ $ - moveCursor41
+
+
+    	sec9_prompt db "TN210"
+ 	sec9_len equ $ - sec9_prompt
+ 	
+ 	moveCursor42 db 27, '[18;53H'          
+    	moveCursor42_len equ $ - moveCursor42
+
+
+    	sec10_prompt db "TN210"
+ 	sec10_len equ $ - sec10_prompt
+ 	
+ 	moveCursor43 db 27, '[8;64H'          
+    	moveCursor43_len equ $ - moveCursor43
+
+
+    	unit_prompt db "Units"
+ 	unit_len equ $ - unit_prompt
+ 	
+ 	moveCursor44 db 27, '[9;65H'          
+    	moveCursor44_len equ $ - moveCursor44
+
+
+    	unit1_prompt db "1"
+ 	unit1_len equ $ - unit1_prompt
+ 	
+ 	moveCursor45 db 27, '[10;65H'          
+    	moveCursor45_len equ $ - moveCursor45
+
+
+    	unit2_prompt db "1"
+ 	unit2_len equ $ - unit2_prompt
+ 	
+ 	moveCursor46 db 27, '[11;65H'          
+    	moveCursor46_len equ $ - moveCursor46
+
+
+    	unit3_prompt db "1"
+ 	unit3_len equ $ - unit2_prompt
+ 	
+ 	moveCursor47 db 27, '[12;65H'          
+    	moveCursor47_len equ $ - moveCursor47
+
+
+    	unit4_prompt db "1"
+ 	unit4_len equ $ - unit4_prompt
+ 	
+ 	moveCursor48 db 27, '[13;65H'          
+    	moveCursor48_len equ $ - moveCursor48
+
+
+    	unit5_prompt db "1"
+ 	unit5_len equ $ - unit5_prompt
+ 	
+ 	moveCursor49 db 27, '[14;65H'          
+    	moveCursor49_len equ $ - moveCursor49
+
+
+    	unit6_prompt db "1"
+ 	unit6_len equ $ - unit6_prompt
+ 	
+ 	moveCursor50 db 27, '[15;65H'          
+    	moveCursor50_len equ $ - moveCursor50
+
+
+    	unit7_prompt db "1"
+ 	unit7_len equ $ - unit7_prompt
+ 	
+ 	moveCursor51 db 27, '[16;65H'          
+    	moveCursor51_len equ $ - moveCursor51
+
+
+    	unit8_prompt db "1"
+ 	unit8_len equ $ - unit8_prompt
+ 	
+ 	moveCursor52 db 27, '[17;65H'          
+    	moveCursor52_len equ $ - moveCursor52
+
+
+    	unit9_prompt db "1"
+ 	unit9_len equ $ - unit9_prompt
+ 	
+ 	moveCursor53 db 27, '[18;65H'          
+    	moveCursor53_len equ $ - moveCursor53
+
+
+    	unit10_prompt db "1"
+ 	unit10_len equ $ - unit10_prompt
+ 	
+ 	moveCursor54 db 27, '[8;74H'          
+    	moveCursor54_len equ $ - moveCursor54
+ 	
+ 	
+ 	day_prompt db "Days"
+ 	day_len equ $ - day_prompt
+ 	
+ 	moveCursor55 db 27, '[9;75H'          
+    	moveCursor55_len equ $ - moveCursor55
+ 	
+ 	
+ 	day1_prompt db "F"
+ 	day1_len equ $ - day1_prompt
+ 	
+ 	moveCursor56 db 27, '[10;75H'          
+    	moveCursor56_len equ $ - moveCursor56
+ 	
+ 	
+ 	day2_prompt db "F"
+ 	day2_len equ $ - day2_prompt
+ 	
+ 	moveCursor57 db 27, '[11;75H'          
+    	moveCursor57_len equ $ - moveCursor57
+ 	
+ 	
+ 	day3_prompt db "F"
+ 	day3_len equ $ - day3_prompt
+ 	
+ 	moveCursor58 db 27, '[12;75H'          
+    	moveCursor58_len equ $ - moveCursor58
+ 	
+ 	
+ 	day4_prompt db "F"
+ 	day4_len equ $ - day4_prompt
+ 	
+ 	moveCursor59 db 27, '[13;75H'          
+    	moveCursor59_len equ $ - moveCursor59
+ 	
+ 	
+ 	day5_prompt db "F"
+ 	day5_len equ $ - day5_prompt
+ 	
+ 	moveCursor60 db 27, '[14;75H'          
+    	moveCursor60_len equ $ - moveCursor60
+ 	
+ 	
+ 	day6_prompt db "F"
+ 	day6_len equ $ - day6_prompt
+ 	
+ 	moveCursor61 db 27, '[15;75H'          
+    	moveCursor61_len equ $ - moveCursor61
+ 	
+ 	
+ 	day7_prompt db "F"
+ 	day7_len equ $ - day7_prompt
+ 	
+ 	moveCursor62 db 27, '[16;75H'          
+    	moveCursor62_len equ $ - moveCursor62	
+ 	
+ 	day8_prompt db "F"
+ 	day8_len equ $ - day8_prompt
+ 	
+ 	moveCursor63 db 27, '[17;75H'          
+    	moveCursor63_len equ $ - moveCursor63
+ 	
+ 	
+ 	day9_prompt db "F"
+ 	day9_len equ $ - day9_prompt
+ 	
+ 	moveCursor64 db 27, '[18;75H'          
+    	moveCursor64_len equ $ - moveCursor64
+ 	
+ 	
+ 	day10_prompt db "F"
+ 	day10_len equ $ - day10_prompt
+ 	
+ 	moveCursor65 db 27, '[8;90H'          
+    	moveCursor65_len equ $ - moveCursor65
+    	
+    	time_prompt db "Time"
+ 	time_len equ $ - time_prompt
+ 	
+ 	moveCursor66 db 27, '[9;85H'          
+    	moveCursor66_len equ $ - moveCursor66
+    	
+    	time1_prompt db "10:00 - 12:00"
+ 	time1_len equ $ - time1_prompt
+ 	
+ 	moveCursor67 db 27, '[10;85H'          
+    	moveCursor67_len equ $ - moveCursor67
+    	
+    	time2_prompt db "10:00 - 12:00"
+ 	time2_len equ $ - time2_prompt
+ 	
+ 	moveCursor68 db 27, '[11;85H'          
+    	moveCursor68_len equ $ - moveCursor68
+    	
+    	time3_prompt db "10:00 - 12:00"
+ 	time3_len equ $ - time3_prompt
+ 	
+ 	moveCursor69 db 27, '[12;85H'          
+    	moveCursor69_len equ $ - moveCursor69
+    	
+    	time4_prompt db "10:00 - 12:00"
+ 	time4_len equ $ - time4_prompt
+ 	
+ 	moveCursor70 db 27, '[13;85H'          
+    	moveCursor70_len equ $ - moveCursor70
+    	
+    	time5_prompt db "10:00 - 12:00"
+ 	time5_len equ $ - time5_prompt
+ 	
+ 	moveCursor71 db 27, '[14;85H'          
+    	moveCursor71_len equ $ - moveCursor71
+    	
+    	time6_prompt db "10:00 - 12:00"
+ 	time6_len equ $ - time6_prompt
+ 	
+ 	moveCursor72 db 27, '[15;85H'          
+    	moveCursor72_len equ $ - moveCursor72
+    	
+    	time7_prompt db "10:00 - 12:00"
+ 	time7_len equ $ - time7_prompt
+ 	
+ 	moveCursor73 db 27, '[16;85H'          
+    	moveCursor73_len equ $ - moveCursor73
+    	
+    	time8_prompt db "10:00 - 12:00"
+ 	time8_len equ $ - time8_prompt
+ 	
+ 	moveCursor74 db 27, '[17;85H'          
+    	moveCursor74_len equ $ - moveCursor74
+    	
+    	time9_prompt db "10:00 - 12:00"
+ 	time9_len equ $ - time9_prompt
+ 	
+ 	moveCursor75 db 27, '[18;85H'          
+    	moveCursor75_len equ $ - moveCursor75
+    	
+    	time10_prompt db "10:00 - 12:00"
+ 	time10_len equ $ - time10_prompt
+ 	
+ 	moveCursor76 db 27, '[8;110H'          
+    	moveCursor76_len equ $ - moveCursor76
+    	
+    	room_prompt db "Room"
+ 	room_len equ $ - room_prompt
+ 	
+ 	moveCursor77 db 27, '[9;105H'          
+    	moveCursor77_len equ $ - moveCursor77
+    	
+    	room1_prompt db "N/A"
+ 	room1_len equ $ - room1_prompt
+ 	
+ 	moveCursor78 db 27, '[10;105H'          
+    	moveCursor78_len equ $ - moveCursor78
+    	
+    	room2_prompt db "N/A"
+ 	room2_len equ $ - room2_prompt
+ 	
+	moveCursor79 db 27, '[11;105H'          
+    	moveCursor79_len equ $ - moveCursor79
+    	
+    	room3_prompt db "N/A"
+ 	room3_len equ $ - room3_prompt
+ 	
+ 	moveCursor80 db 27, '[12;105H'          
+    	moveCursor80_len equ $ - moveCursor80
+    	
+    	room4_prompt db "N/A"
+ 	room4_len equ $ - room4_prompt
+ 	
+ 	moveCursor81 db 27, '[13;105H'          
+    	moveCursor81_len equ $ - moveCursor81
+    	
+    	room5_prompt db "N/A"
+ 	room5_len equ $ - room5_prompt
+ 	
+ 	moveCursor82 db 27, '[14;105H'          
+    	moveCursor82_len equ $ - moveCursor82
+    	
+    	room6_prompt db "N/A"
+ 	room6_len equ $ - room6_prompt
+ 	
+ 	moveCursor83 db 27, '[15;105H'          
+    	moveCursor83_len equ $ - moveCursor83
+    	
+    	room7_prompt db "N/A"
+ 	room7_len equ $ - room7_prompt
+ 	
+ 	moveCursor84 db 27, '[16;105H'          
+    	moveCursor84_len equ $ - moveCursor84
+    	
+    	room8_prompt db "N/A"
+ 	room8_len equ $ - room8_prompt
+ 	
+ 	moveCursor85 db 27, '[17;105H'          
+    	moveCursor85_len equ $ - moveCursor85
+    	
+    	room9_prompt db "N/A"
+ 	room9_len equ $ - room9_prompt
+ 	
+ 	moveCursor86 db 27, '[18;105H'          
+    	moveCursor86_len equ $ - moveCursor86
+    	
+    	room10_prompt db "N/A"
+ 	room10_len equ $ - room3_prompt
+ 	
+ 	
+ 	
+ 	
+
+section .bss
+	
+   	enroll_input resb 25    
+   	enroll_inputlen equ $- enroll_input
+   	
+   	term_input resb 2    
+   	term_inputlen equ $- term_input
+   	
+   	sy_input resb 8    
+   	sy_inputlen equ $- sy_input
+   	
+   	sid_input resb 8    
+   	sid_inputlen equ $- sid_input
+   	
+   	name_input resb 30  
+   	name_inputlen equ $- name_input
+   	
+   	college_input resb 15
+	college_inputlen equ $ - college_input
+	
+	yrlevel_input resb 30
+	yrlevel_inputlen equ $ - yrlevel_input
+	
+	prog_input resb 6
+	prog_inputlen equ $ - prog_input
+
+	
+
+section .text
+
+    	global _start
+    
+_start:
+
+	call clearTheScreen
+	call displayText1
+	call displayText2
+	call displayText3
+	call displayText4
+	call displayText5
+	call displayText6
+	call displayText7
+	call displayText8
+	call displayText9
+	call displayText10
+
+	
+	clearTheScreen:
+    	mov eax, 4
+    	mov ebx, 1
+   	mov ecx, clearScreen
+   	mov edx, 4
+        int 0x80
+    	ret
+    
+	;for enrollment status
+	displayText1:
+        mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor1
+    	mov edx, moveCursor1_len
+    	int 0x80
+    	
+	 mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, enrollment_prompt 
+	 mov	edx, enroll_len
+	 int	0x80  
+	
+         mov  eax, 3 
+         mov  ebx, 0 
+         mov  ecx, enroll_input 
+         mov  edx, enroll_inputlen
+         int  80h
+         
+         ;for term
+         displayText2:
+        mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor2
+    	mov edx, moveCursor2_len
+    	int 0x80
+    	
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, term_prompt
+	 mov	edx, term_len
+	 int	0x80
+	 
+	 mov  eax, 3 
+         mov  ebx, 0 
+         mov  ecx, term_input 
+         mov  edx, term_inputlen
+         int  80h
+         
+        ;for sy
+        
+        displayText3:
+        mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor3
+    	mov edx, moveCursor3_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, sy_prompt
+	 mov	edx, sy_len
+	 int	0x80
+	 
+	 mov  eax, 3 
+         mov  ebx, 0 
+         mov  ecx, sy_input 
+         mov  edx, sy_inputlen
+         int  80h
+         
+        ;for studentid
+        displayText4:
+        mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor4
+    	mov edx, moveCursor4_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, sid_prompt
+	 mov	edx, sid_len
+	 int	0x80
+	 
+	 mov  eax, 3 
+         mov  ebx, 0 
+         mov  ecx, sid_input 
+         mov  edx, sid_inputlen
+         int  80h
+         
+         ;for name
+        displayText5:
+        mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor5
+    	mov edx, moveCursor5_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, name_prompt
+	 mov	edx, name_len
+	 int	0x80
+	 
+	 mov  eax, 3 
+         mov  ebx, 0 
+         mov  ecx, name_input 
+         mov  edx, name_inputlen
+         int  80h
+         
+         ;for college
+        displayText6:
+        mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor6
+    	mov edx, moveCursor6_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, college_prompt
+	 mov	edx, college_len
+	 int	0x80
+	 
+	 mov  eax, 3 
+         mov  ebx, 0 
+         mov  ecx, college_input 
+         mov  edx, college_inputlen
+         int  80h
+         
+         ;for year level
+        displayText7:
+        mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor7
+    	mov edx, moveCursor7_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, yrlevel_prompt
+	 mov	edx, yrlvel_len
+	 int	0x80
+	 
+	 mov  eax, 3 
+         mov  ebx, 0 
+         mov  ecx, yrlevel_input 
+         mov  edx, yrlevel_inputlen
+         int  80h
+         
+         ;for program
+        displayText8:
+        mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor8
+    	mov edx, moveCursor8_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, prog_prompt
+	 mov	edx, prog_len
+	 int	0x80
+	 
+	 mov  eax, 3 
+         mov  ebx, 0 
+         mov  ecx, prog_input 
+         mov  edx, prog_inputlen
+         int  80h
+         
+          ;for course
+        displayText9:
+        mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor9
+    	mov edx, moveCursor9_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, course_prompt
+	 mov	edx, course_len
+	 int	0x80
+	 
+	 ;for all course codes
+        displayText10:
+        mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor10
+    	mov edx, moveCursor10_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, c1_prompt
+	 mov	edx, c1_len
+	 int	0x80
+	 
+	mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor11
+    	mov edx, moveCursor11_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, c2_prompt
+	 mov	edx, c2_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor12
+    	mov edx, moveCursor12_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, c3_prompt
+	 mov	edx, c3_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor13
+    	mov edx, moveCursor13_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, c4_prompt
+	 mov	edx, c4_len
+	 int	0x80
+	 
+ 	mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor14
+    	mov edx, moveCursor14_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, c5_prompt
+	 mov	edx, c5_len
+	 int	0x80
+	 
+          mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor15
+    	mov edx, moveCursor15_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, c6_prompt
+	 mov	edx, c6_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor16
+    	mov edx, moveCursor16_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, c7_prompt
+	 mov	edx, c7_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor17
+    	mov edx, moveCursor17_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, c8_prompt
+	 mov	edx, c8_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor18
+    	mov edx, moveCursor18_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, c9_prompt
+	 mov	edx, c9_len
+	 int	0x80
+	 
+ 	mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor19
+    	mov edx, moveCursor19_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, c10_prompt
+	 mov	edx, c10_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor20
+    	mov edx, moveCursor20_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, tunits_prompt
+	 mov	edx, tunits_len
+	 int	0x80
+	 
+	 ;for title
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor21
+    	mov edx, moveCursor21_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, title_prompt
+	 mov	edx, title_len
+	 int	0x80
+	
+	;for all titles
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor22
+    	mov edx, moveCursor22_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, t1_prompt
+	 mov	edx, t1_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor23
+    	mov edx, moveCursor23_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, t2_prompt
+	 mov	edx, t2_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor24
+    	mov edx, moveCursor24_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, t3_prompt
+	 mov	edx, t3_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor25
+    	mov edx, moveCursor25_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, t4_prompt
+	 mov	edx, t4_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor26
+    	mov edx, moveCursor26_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, t5_prompt
+	 mov	edx, t5_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor27
+    	mov edx, moveCursor27_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, t6_prompt
+	 mov	edx, t6_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor28
+    	mov edx, moveCursor28_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, t7_prompt
+	 mov	edx, t7_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor29
+    	mov edx, moveCursor29_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, t8_prompt
+	 mov	edx, t8_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor30
+    	mov edx, moveCursor30_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, t9_prompt
+	 mov	edx, t9_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor31
+    	mov edx, moveCursor31_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, t10_prompt
+	 mov	edx, t10_len
+	 int	0x80
+	 
+	 ;for section
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor32
+    	mov edx, moveCursor32_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, sec_prompt
+	 mov	edx, sec_len
+	 int	0x80
+	 
+	 ;for sections
+	mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor33
+    	mov edx, moveCursor33_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, sec1_prompt
+	 mov	edx, sec1_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor34
+    	mov edx, moveCursor34_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, sec2_prompt
+	 mov	edx, sec2_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor35
+    	mov edx, moveCursor35_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, sec3_prompt
+	 mov	edx, sec3_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor36
+    	mov edx, moveCursor36_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, sec4_prompt
+	 mov	edx, sec4_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor37
+    	mov edx, moveCursor37_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, sec5_prompt
+	 mov	edx, sec5_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor38
+    	mov edx, moveCursor38_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, sec6_prompt
+	 mov	edx, sec6_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor39
+    	mov edx, moveCursor39_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, sec7_prompt
+	 mov	edx, sec7_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor40
+    	mov edx, moveCursor40_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, sec8_prompt
+	 mov	edx, sec8_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor41
+    	mov edx, moveCursor41_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, sec9_prompt
+	 mov	edx, sec9_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor42
+    	mov edx, moveCursor42_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, sec10_prompt
+	 mov	edx, sec10_len
+	 int	0x80
+	 
+	 ;for unit
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor43
+    	mov edx, moveCursor43_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, unit_prompt
+	 mov	edx, unit_len
+	 int	0x80
+	 
+	 ;for units
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor44
+    	mov edx, moveCursor44_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, unit1_prompt
+	 mov	edx, unit1_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor45
+    	mov edx, moveCursor45_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, unit2_prompt
+	 mov	edx, unit2_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor46
+    	mov edx, moveCursor46_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, unit3_prompt
+	 mov	edx, unit3_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor47
+    	mov edx, moveCursor47_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, unit4_prompt
+	 mov	edx, unit4_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor48
+    	mov edx, moveCursor48_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, unit5_prompt
+	 mov	edx, unit5_len
+	 int	0x80
+	 
+ 	mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor49
+    	mov edx, moveCursor49_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, unit6_prompt
+	 mov	edx, unit6_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor50
+    	mov edx, moveCursor50_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, unit7_prompt
+	 mov	edx, unit7_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor51
+    	mov edx, moveCursor51_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, unit8_prompt
+	 mov	edx, unit8_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor52
+    	mov edx, moveCursor52_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, unit9_prompt
+	 mov	edx, unit9_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor53
+    	mov edx, moveCursor53_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, unit10_prompt
+	 mov	edx, unit10_len
+	 int	0x80
+	 
+	 ;for day
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor54
+    	mov edx, moveCursor54_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, day_prompt
+	 mov	edx, day_len
+	 int	0x80
+	 
+	 ;for days
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor55
+    	mov edx, moveCursor55_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, day1_prompt
+	 mov	edx, day1_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor56
+    	mov edx, moveCursor56_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, day2_prompt
+	 mov	edx, day2_len
+	 int	0x80
+	 
+	mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor57
+    	mov edx, moveCursor57_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, day3_prompt
+	 mov	edx, day3_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor58
+    	mov edx, moveCursor58_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, day4_prompt
+	 mov	edx, day4_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor59
+    	mov edx, moveCursor59_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, day5_prompt
+	 mov	edx, day5_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor60
+    	mov edx, moveCursor60_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, day6_prompt
+	 mov	edx, day6_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor61
+    	mov edx, moveCursor61_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, day7_prompt
+	 mov	edx, day7_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor62
+    	mov edx, moveCursor62_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, day8_prompt
+	 mov	edx, day8_len
+	 int	0x80
+	 
+ 	mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor63
+    	mov edx, moveCursor63_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, day9_prompt
+	 mov	edx, day9_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor64
+    	mov edx, moveCursor64_len
+    	int 0x80
+         
+         mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, day10_prompt
+	 mov	edx, day10_len
+	 int	0x80
+	 
+	 
+	 ;for time
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor65
+    	mov edx, moveCursor65_len
+    	int 0x80
+    	
+    	 mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, time_prompt
+	 mov	edx, time_len
+	 int	0x80
+	 
+	 ;for times
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor66
+    	mov edx, moveCursor66_len
+    	int 0x80
+    	
+    	 mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, time1_prompt
+	 mov	edx, time1_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor67
+    	mov edx, moveCursor67_len
+    	int 0x80
+    	
+    	 mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, time2_prompt
+	 mov	edx, time2_len
+	 int	0x80
+         
+          mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor68
+    	mov edx, moveCursor68_len
+    	int 0x80
+    	
+    	 mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, time3_prompt
+	 mov	edx, time3_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor69
+    	mov edx, moveCursor69_len
+    	int 0x80
+    	
+    	 mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, time4_prompt
+	 mov	edx, time4_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor70
+    	mov edx, moveCursor70_len
+    	int 0x80
+    	
+    	 mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, time5_prompt
+	 mov	edx, time5_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor71
+    	mov edx, moveCursor71_len
+    	int 0x80
+    	
+    	 mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, time6_prompt
+	 mov	edx, time6_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor72
+    	mov edx, moveCursor72_len
+    	int 0x80
+    	
+    	 mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, time7_prompt
+	 mov	edx, time7_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor73
+    	mov edx, moveCursor73_len
+    	int 0x80
+    	
+    	 mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, time8_prompt
+	 mov	edx, time8_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor74
+    	mov edx, moveCursor74_len
+    	int 0x80
+    	
+    	 mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, time9_prompt
+	 mov	edx, time9_len
+	 int	0x80
+	 
+	mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor75
+    	mov edx, moveCursor75_len
+    	int 0x80
+    	
+    	 mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, time10_prompt
+	 mov	edx, time10_len
+	 int	0x80
+	 
+	 ;for room
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor76
+    	mov edx, moveCursor76_len
+    	int 0x80
+    	
+    	 mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, room_prompt
+	 mov	edx, room_len
+	 int	0x80
+	 
+	 ;for rooms
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor77
+    	mov edx, moveCursor77_len
+    	int 0x80
+    	
+    	 mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, room1_prompt
+	 mov	edx, room1_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor78
+    	mov edx, moveCursor78_len
+    	int 0x80
+    	
+    	 mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, room2_prompt
+	 mov	edx, room2_len
+	 int	0x80
+	 
+	 mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor79
+    	mov edx, moveCursor79_len
+    	int 0x80
+    	
+    	 mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, room3_prompt
+	 mov	edx, room3_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor80
+    	mov edx, moveCursor80_len
+    	int 0x80
+    	
+    	 mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, room4_prompt
+	 mov	edx, room4_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor81
+    	mov edx, moveCursor81_len
+    	int 0x80
+    	
+    	 mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, room5_prompt
+	 mov	edx, room5_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor82
+    	mov edx, moveCursor82_len
+    	int 0x80
+    	
+    	 mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, room6_prompt
+	 mov	edx, room6_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor83
+    	mov edx, moveCursor83_len
+    	int 0x80
+    	
+    	 mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, room7_prompt
+	 mov	edx, room7_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor84
+    	mov edx, moveCursor84_len
+    	int 0x80
+    	
+    	 mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, room8_prompt
+	 mov	edx, room8_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor85
+    	mov edx, moveCursor85_len
+    	int 0x80
+    	
+    	 mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, room9_prompt
+	 mov	edx, room9_len
+	 int	0x80
+	 
+	  mov eax, 4
+    	mov ebx, 1
+    	mov ecx, moveCursor86
+    	mov edx, moveCursor86_len
+    	int 0x80
+    	
+    	 mov	eax, 4	    
+	 mov	ebx, 1	 
+	 mov	ecx, room10_prompt
+	 mov	edx, room10_len
+	 int	0x80
+	 
+         mov    eax, 1
+         mov    ebx, 0
+         int    80h
